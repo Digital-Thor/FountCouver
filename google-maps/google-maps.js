@@ -1,4 +1,6 @@
-Locations = new Mongo.Collections("points");
+Locations = new Mongo.Collection("location");
+  //console.dir(Locations.find().fetch());
+
 
 if (Meteor.isClient) {
   // counter starts at 0
@@ -33,12 +35,19 @@ if (Meteor.isClient) {
         //   map: map.instance
         // });
 
-        // map = map.instance;
-        // for (int i = 0; i< Locations.find().count(); i++){
-        //   var marker = new google.maps.Marker({
-        //    position: Locations.,
-        //    map: map
-        // }
+
+
+        var mapPoints = Locations.find();
+        //  debugger;
+
+        mapPoints.forEach(function (location) {
+          console.log(location.Lat, location.Lon);
+          // console.dir(location);
+            var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(location.Lat, location.Lon),
+            map: map.instance
+          });
+        });
       });
 
       // Map initialization options
@@ -81,6 +90,7 @@ if (Meteor.isServer) {
     }
 
   });
+
 }
 
 
