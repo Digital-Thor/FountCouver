@@ -1,0 +1,237 @@
+{"name":"Water Fountains","type":"FeatureCollection"
+,"crs":{"type":"name","properties":{"name":"EPSG:26910"}}
+,"features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.027254,49.234947]},"properties":{"NAME":"Fountain location:\nAberdeen","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.024141,49.275858]},"properties":{"NAME":"Fountain location:\nAdanac","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.142392,49.285554]},"properties":{"NAME":"Fountain location:\nAlexandria","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.184759,49.26098]},"properties":{"NAME":"Fountain location:\nAlmond","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.106194,49.278811]},"properties":{"NAME":"Fountain location:\nAndy Livingstone","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.103575,49.277951]},"properties":{"NAME":"Fountain location:\nAndy Livingstone","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.155318,49.262128]},"properties":{"NAME":"Fountain location:\nArbutus Greenway","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.157991,49.248679]},"properties":{"NAME":"Fountain location:\nArbutus Village","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.120939,49.285919]},"properties":{"NAME":"Fountain location:\nArt Phillips Park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.175342,49.245614]},"properties":{"NAME":"Fountain location:\nBalaclava","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.050071,49.255191]},"properties":{"NAME":"Fountain location:\nBeaconsfield","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.056107,49.215521]},"properties":{"NAME":"Fountain location:\nBobolink","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.066226,49.24745]},"properties":{"NAME":"Fountain location:\nBrewers","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.139769,49.275112]},"properties":{"NAME":"Fountain location:\nBurrard Civic Centre","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.050483,49.290415]},"properties":{"NAME":"Fountain location:\nBurrard View","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.172514,49.256926]},"properties":{"NAME":"Fountain location:\nCarnarvon","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.097143,49.237223]},"properties":{"NAME":"Fountain location:\nCartier","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.191688,49.249585]},"properties":{"NAME":"Fountain location:\nChaldecott","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.125901,49.268012]},"properties":{"NAME":"Fountain location:\nCharleson","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.083134,49.264372]},"properties":{"NAME":"Fountain location:\nChina Creek North","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.079061,49.261644]},"properties":{"NAME":"Fountain location:\nChina Creek South","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.073107,49.256746]},"properties":{"NAME":"Fountain location:\nClark","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.050137,49.270699]},"properties":{"NAME":"Fountain location:\nClinton","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.051686,49.271281]},"properties":{"NAME":"Fountain location:\nClinton","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.125385,49.289871]},"properties":{"NAME":"Fountain location:\nCoal Harbour","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.104505,49.2901697]},"properties":{"NAME":"Fountain location:\nCoal Harbour","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.03638,49.236946]},"properties":{"NAME":"Fountain location:\nCollingwood","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.113005,49.231825]},"properties":{"NAME":"Fountain location:\nColumbia","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.16143,49.2617676]},"properties":{"NAME":"Fountain location:\nConnaught","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.159336,49.262869]},"properties":{"NAME":"Fountain location:\nConnaught","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.113057,49.2738086]},"properties":{"NAME":"Fountain location:\nCoopers'","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.114649,49.272798]},"properties":{"NAME":"Fountain location:\nCoopers'","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.12572,49.271632]},"properties":{"NAME":"Fountain location:\nDavid Lam","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.123289,49.272394]},"properties":{"NAME":"Fountain location:\nDavid Lam","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.136001,49.294985]},"properties":{"NAME":"Fountain location:\nDevonian Harbour","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.122317,49.253089]},"properties":{"NAME":"Fountain location:\nDouglas","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.122502,49.251936]},"properties":{"NAME":"Fountain location:\nDouglas","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.132849,49.205406]},"properties":{"NAME":"Fountain location:\nEbisu","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.163401,49.233484]},"properties":{"NAME":"Fountain location:\nElm","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.123796,49.276991]},"properties":{"NAME":"Fountain location:\nEmery Barnes Dog Park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.124282,49.2765359]},"properties":{"NAME":"Fountain location:\nEmery Barnes Park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.142573,49.287419]},"properties":{"NAME":"Fountain location:\nEnglish Bay","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.143035,49.286027]},"properties":{"NAME":"Fountain location:\nEnglish Bay","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.13802,49.278896]},"properties":{"NAME":"Fountain location:\nEnglish Bay","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.125112,49.2410466]},"properties":{"NAME":"Fountain location:\nEric Hamber","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.029979,49.254842]},"properties":{"NAME":"Fountain location:\nFalaise","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.149337,49.20713]},"properties":{"NAME":"Fountain location:\nFraser River","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.150808,49.20642]},"properties":{"NAME":"Fountain location:\nFraser River","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.042283,49.2112962]},"properties":{"NAME":"Fountain location:\nFraserview Golf","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.051533,49.2139347]},"properties":{"NAME":"Fountain location:\nFraserview Golf","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.045695,49.2082106]},"properties":{"NAME":"Fountain location:\nFraserview Golf","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.051395,49.2123921]},"properties":{"NAME":"Fountain location:\nFraserview Golf","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.058428,49.268389]},"properties":{"NAME":"Fountain location:\nGarden","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.031411,49.236498]},"properties":{"NAME":"Fountain location:\nGaston","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.093602,49.212417]},"properties":{"NAME":"Fountain location:\nGeorge","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.129793,49.271802]},"properties":{"NAME":"Fountain location:\nGeorge Wainborn","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.070126,49.273736]},"properties":{"NAME":"Fountain location:\nGrandview","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.137756,49.2671275]},"properties":{"NAME":"Fountain location:\nGranville Loop Park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.084994,49.240977]},"properties":{"NAME":"Fountain location:\nGrays","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.095575,49.26422]},"properties":{"NAME":"Fountain location:\nGuelph Park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.12327,49.291228]},"properties":{"NAME":"Fountain location:\nHarbour Green","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.12318,49.290539]},"properties":{"NAME":"Fountain location:\nHarbour Green","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.121694,49.290001]},"properties":{"NAME":"Fountain location:\nHarbour Green","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.128045,49.28519]},"properties":{"NAME":"Fountain location:\nHaro & Bute mini-park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.034264,49.282563]},"properties":{"NAME":"Fountain location:\nHastings","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.034108,49.283438]},"properties":{"NAME":"Fountain location:\nHastings","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.042959,49.283144]},"properties":{"NAME":"Fountain location:\nHastings","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.040624,49.280369]},"properties":{"NAME":"Fountain location:\nHastings Community","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.038221,49.280379]},"properties":{"NAME":"Fountain location:\nHastings Community","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.106969,49.2456626]},"properties":{"NAME":"Fountain location:\nHillcrest","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.107665,49.244776]},"properties":{"NAME":"Fountain location:\nHillcrest","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.110206,49.2710507]},"properties":{"NAME":"Fountain location:\nHinge Park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.191736,49.2719084]},"properties":{"NAME":"Fountain location:\nJericho Beach","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.136052,49.281987]},"properties":{"NAME":"Fountain location:\nJervis and Burnaby","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.061986,49.253929]},"properties":{"NAME":"Fountain location:\nJohn Hendry","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.107514,49.264164]},"properties":{"NAME":"Fountain location:\nJonathan Rogers","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.045152,49.263954]},"properties":{"NAME":"Fountain location:\nKaslo","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.07429,49.238138]},"properties":{"NAME":"Fountain location:\nKensington","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.1572,49.233331]},"properties":{"NAME":"Fountain location:\nKerrisdale Centennial","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.041882,49.227059]},"properties":{"NAME":"Fountain location:\nKillarney","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.045343,49.229195]},"properties":{"NAME":"Fountain location:\nKillarney","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.074579,49.247325]},"properties":{"NAME":"Fountain location:\nKingcrest","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.153826,49.274387]},"properties":{"NAME":"Fountain location:\nKisilano","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.152287,49.275753]},"properties":{"NAME":"Fountain location:\nKitsilano","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.151743,49.276739]},"properties":{"NAME":"Fountain location:\nKitsilano","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.106335,49.2194057]},"properties":{"NAME":"Fountain location:\nLangara Golf Course","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.112543,49.2237851]},"properties":{"NAME":"Fountain location:\nLangara Golf Course","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.116336,49.2230752]},"properties":{"NAME":"Fountain location:\nLangara Golf Course","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.207164,49.274969]},"properties":{"NAME":"Fountain location:\nLocarno","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.098511,49.22997]},"properties":{"NAME":"Fountain location:\nMacDonald","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.107009,49.2615753]},"properties":{"NAME":"Fountain location:\nMajor Mathews","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.159702,49.22318]},"properties":{"NAME":"Fountain location:\nMaple Grove","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.160831,49.223507]},"properties":{"NAME":"Fountain location:\nMaple Grove","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.138958,49.205624]},"properties":{"NAME":"Fountain location:\nMarpole","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.180134,49.267923]},"properties":{"NAME":"Fountain location:\nMcBride","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.089442,49.2788422]},"properties":{"NAME":"Fountain location:\nMcLean Park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.169628,49.2205907]},"properties":{"NAME":"Fountain location:\nMcLeery Golf Course","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.167863,49.2209551]},"properties":{"NAME":"Fountain location:\nMcLeery Golf Course","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.170895,49.2203778]},"properties":{"NAME":"Fountain location:\nMcLeery Golf Course","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.029107,49.236424]},"properties":{"NAME":"Fountain location:\nMelbourne","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.086739,49.231241]},"properties":{"NAME":"Fountain location:\nMemorial South","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.084589,49.2314231]},"properties":{"NAME":"Fountain location:\nMemorial South","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.187296,49.243358]},"properties":{"NAME":"Fountain location:\nMemorial West","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.084599,49.214828]},"properties":{"NAME":"Fountain location:\nMoberly","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.0872,49.2153386]},"properties":{"NAME":"Fountain location:\nMoberly","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.142264,49.287429]},"properties":{"NAME":"Fountain location:\nMorton","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.074217,49.273192]},"properties":{"NAME":"Fountain location:\nMosaic Creek","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.106446,49.256865]},"properties":{"NAME":"Fountain location:\nMount Pleasant","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.05692,49.228277]},"properties":{"NAME":"Fountain location:\nNanaimo","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.129981,49.282838]},"properties":{"NAME":"Fountain location:\nNelson","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.038691,49.289431]},"properties":{"NAME":"Fountain location:\nNew Brighton","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.036666,49.289268]},"properties":{"NAME":"Fountain location:\nNew Brighton","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.035531,49.28959]},"properties":{"NAME":"Fountain location:\nNew Brighton","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.050828,49.238173]},"properties":{"NAME":"Fountain location:\nNorquay","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.127387,49.216585]},"properties":{"NAME":"Fountain location:\nOak","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.129122,49.216607]},"properties":{"NAME":"Fountain location:\nOak","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.128155,49.216882]},"properties":{"NAME":"Fountain location:\nOak","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.094057,49.282901]},"properties":{"NAME":"Fountain location:\nOppenheimer","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.057199,49.28287]},"properties":{"NAME":"Fountain location:\nPandora Park","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.104505,49.2816629]},"properties":{"NAME":"Fountain location:\nPioneer Square","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.101821,49.2846537]},"properties":{"NAME":"Fountain location:\nPortside","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.113543,49.242275]},"properties":{"NAME":"Fountain location:\nQueen Elizabeth","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.111542,49.239167]},"properties":{"NAME":"Fountain location:\nQueen Elizabeth","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.105621,49.23742]},"properties":{"NAME":"Fountain location:\nQueen Elizabeth","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.148828,49.24462]},"properties":{"NAME":"Fountain location:\nQuilchena","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.042086,49.25211]},"properties":{"NAME":"Fountain location:\nRenfrew","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.050981,49.205739]},"properties":{"NAME":"Fountain location:\nRiverfront","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.051817,49.205755]},"properties":{"NAME":"Fountain location:\nRiverfront","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.091912,49.257792]},"properties":{"NAME":"Fountain location:\nRobson","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.082434,49.216811]},"properties":{"NAME":"Fountain location:\nRoss","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.082635,49.216947]},"properties":{"NAME":"Fountain location:\nRoss","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.030627,49.270148]},"properties":{"NAME":"Fountain location:\nRupert","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.030636,49.273071]},"properties":{"NAME":"Fountain location:\nRupert","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.033079,49.27112]},"properties":{"NAME":"Fountain location:\nRupert","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.103111,49.2751248]},"properties":{"NAME":"Fountain location:\nSE False Creek","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.146205,49.27099]},"properties":{"NAME":"Fountain location:\nSeaforth","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.048373,49.244294]},"properties":{"NAME":"Fountain location:\nSlocan","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.049711,49.2582608]},"properties":{"NAME":"Fountain location:\nSlocan Greenway","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.222396,49.277484]},"properties":{"NAME":"Fountain location:\nSpanish Banks","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.142625,49.313033]},"properties":{"NAME":"Fountain location:\nStanley","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.130695,49.303]},"properties":{"NAME":"Fountain location:\nStanley Park - Lumbermen's Arch","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.146059,49.292196]},"properties":{"NAME":"Fountain location:\nStanley Park - Tennis Courts","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.129746,49.298105]},"properties":{"NAME":"Fountain location:\nStanley Park- A  Frame Washrooms","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.130947,49.29988]},"properties":{"NAME":"Fountain location:\nStanley Park- Aquarium","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.137497,49.306095]},"properties":{"NAME":"Fountain location:\nStanley Park- Aviary","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.146132,49.3050743]},"properties":{"NAME":"Fountain location:\nStanley Park- Bridle Path","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.134117,49.299111]},"properties":{"NAME":"Fountain location:\nStanley Park- Brockton Oval","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.142741,49.306616]},"properties":{"NAME":"Fountain location:\nStanley Park- Brockton Point Lighthouse","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.148596,49.2936001]},"properties":{"NAME":"Fountain location:\nStanley Park- Ceperley Washrooms","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.149652,49.2937891]},"properties":{"NAME":"Fountain location:\nStanley Park- Cerperley Seawall","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.155447,49.307347]},"properties":{"NAME":"Fountain location:\nStanley Park- Cricket Pavillion","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.147,49.292239]},"properties":{"NAME":"Fountain location:\nStanley Park- Lawn Bowling","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.1427549999,49.312421]},"properties":{"NAME":"Fountain location:\nStanley Park- Pavillion","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.134529,49.3015616]},"properties":{"NAME":"Fountain location:\nStanley Park- Pavillion Playground","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.146245,49.309337]},"properties":{"NAME":"Fountain location:\nStanley Park- Prospect Point","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.142367,49.3126584]},"properties":{"NAME":"Fountain location:\nStanley Park- Prospect Point Washrooms","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.146487,49.293007]},"properties":{"NAME":"Fountain location:\nStanley Park- Putting Green","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.120676,49.298994]},"properties":{"NAME":"Fountain location:\nStanley Park- Rose Garden Playground","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.150394,49.2984252]},"properties":{"NAME":"Fountain location:\nStanley Park- Second Beach","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.150223,49.294943]},"properties":{"NAME":"Fountain location:\nStanley Park- Second Beach","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.151056,49.2954672]},"properties":{"NAME":"Fountain location:\nStanley Park- Second Beach Pool","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.141011,49.312552]},"properties":{"NAME":"Fountain location:\nStanley Park- Shuffleboard","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.156335,49.303156]},"properties":{"NAME":"Fountain location:\nStanley Park- Third Beach","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.156283,49.3031665]},"properties":{"NAME":"Fountain location:\nStanley Park- Third Beach Seawall","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.121263,49.299417]},"properties":{"NAME":"Fountain location:\nStanley Park- Totem Poles","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.126188,49.299691]},"properties":{"NAME":"Fountain location:\nStanley Park- Upper Rose Garden","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.146113,49.2944973]},"properties":{"NAME":"Fountain location:\nStanley Park-Pitch and Putt Course","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.148332,49.310653]},"properties":{"NAME":"Fountain location:\nStanley Park-Prospect Point","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.085478,49.275873]},"properties":{"NAME":"Fountain location:\nStrathcona","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.086689,49.274827]},"properties":{"NAME":"Fountain location:\nStrathcona","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.035669,49.266893]},"properties":{"NAME":"Fountain location:\nSunrise","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.096496,49.222862]},"properties":{"NAME":"Fountain location:\nSunset","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.137935,49.2789007]},"properties":{"NAME":"Fountain location:\nSunset Beach","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.134031,49.269121]},"properties":{"NAME":"Fountain location:\nSutcliffe","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.09859,49.257356]},"properties":{"NAME":"Fountain location:\nTeaswamp","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.070191,49.2296077]},"properties":{"NAME":"Fountain location:\nTecumseh","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.118266,49.228371]},"properties":{"NAME":"Fountain location:\nTisdall","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.163837,49.251273]},"properties":{"NAME":"Fountain location:\nTrafalgar","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.093122,49.2749603]},"properties":{"NAME":"Fountain location:\nTrillium","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.129939,49.2386154]},"properties":{"NAME":"Fountain location:\nVanDusen Gardens","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.129439,49.2394013]},"properties":{"NAME":"Fountain location:\nVanDusen Gardens","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.066732,49.271811]},"properties":{"NAME":"Fountain location:\nVictoria","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.110066,49.281845]},"properties":{"NAME":"Fountain location:\nVictory Square","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.073108,49.263048]},"properties":{"NAME":"Fountain location:\nW.C. Shelly","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.205262,49.266021]},"properties":{"NAME":"Fountain location:\nWest Point Grey","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.205107,49.266937]},"properties":{"NAME":"Fountain location:\nWest Point Grey","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.113059,49.215839]},"properties":{"NAME":"Fountain location:\nWinona","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.073424,49.278442]},"properties":{"NAME":"Fountain location:\nWoodland","MAINTAINER":"Parks"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.125914,49.2663411]},"properties":{"NAME":"Bottle Filling Station location: \nCharleson Park Pumping Station","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.041381,49.257924]},"properties":{"NAME":"Bottle Filling Station location: \nGrandview Hwy Pumping Station","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.136177,49.269566]},"properties":{"NAME":"Bottle Filling Station location: \nGranville Island Pumping Station","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.131579,49.2733345]},"properties":{"NAME":"Bottle Filling Station location: \nGranville St Pumping Station","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.1527806,49.2737142]},"properties":{"NAME":"Bottle Filling Station location: \nKitsilano Pumping Station","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.098886,49.2730368]},"properties":{"NAME":"Bottle Filling Station location: \nThornton Park Pumping Station","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.142081,49.265329]},"properties":{"NAME":"Fountain location:\n1650 W 7th","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.10102,49.245762]},"properties":{"NAME":"Fountain location:\n28th & Main","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.127384,49.237587]},"properties":{"NAME":"Fountain location:\n37th & Oak","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.105647,49.237446]},"properties":{"NAME":"Fountain location:\n37th & Ontario","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.09728295,49.2371952]},"properties":{"NAME":"Fountain location:\n37th & Prince Edward","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.058912,49.234752]},"properties":{"NAME":"Fountain location:\n39th & Nanaimo","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.152706,49.26822777]},"properties":{"NAME":"Fountain location:\n4th & Arbutus","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.106415,49.219505]},"properties":{"NAME":"Fountain location:\n56th & Ontario","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.112967,49.2646599]},"properties":{"NAME":"Fountain location:\n7th & Yukon","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.055044,49.2187548]},"properties":{"NAME":"Fountain location:\nAshburn & Elliot","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.105026,49.262875]},"properties":{"NAME":"Fountain location:\nBroadway & Ontario","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.1666474,49.26423514]},"properties":{"NAME":"Fountain location:\nBroadway & Stephens","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.065619,49.262066]},"properties":{"NAME":"Fountain location:\nBroadway & Victoria","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.12923210062,49.2792475453812]},"properties":{"NAME":"Fountain location:\nBurrard & Davie","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.13955439,49.28451988]},"properties":{"NAME":"Fountain location:\nCardero & Burnaby","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.06939067,49.2678194]},"properties":{"NAME":"Fountain location:\nCommercial & 3rd","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.136516,49.2867384]},"properties":{"NAME":"Fountain location:\nComox & Cardero","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.14264686,49.29067407]},"properties":{"NAME":"Fountain location:\nComox & Chilco","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.13969,49.2887857]},"properties":{"NAME":"Fountain location:\nComox & Denman","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.13854854,49.28922483]},"properties":{"NAME":"Fountain location:\nDenman & Nelson","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.084037,49.2365274]},"properties":{"NAME":"Fountain location:\nElgin & 37th","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.14128655,49.28977703]},"properties":{"NAME":"Fountain location:\nGilford & Comox","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.14022516,49.29049866]},"properties":{"NAME":"Fountain location:\nGilford & Nelson","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.139586,49.2173117]},"properties":{"NAME":"Fountain location:\nGranville & 59th","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.119937,49.281542]},"properties":{"NAME":"Fountain location:\nGranville & Robson","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.097231,49.281386]},"properties":{"NAME":"Fountain location:\nHastings & Gore","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.054448,49.280998]},"properties":{"NAME":"Fountain location:\nHastings & Kamloops","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.10123907,49.2485804]},"properties":{"NAME":"Fountain location:\nKing Edward & Main","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.100784,49.2610594]},"properties":{"NAME":"Fountain location:\nMain & 11th","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.13333675,49.28571023]},"properties":{"NAME":"Fountain location:\nNelson & Broughton","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.140508,49.282385]},"properties":{"NAME":"Fountain location:\nNicola & Beach","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.12229054,49.28306599]},"properties":{"NAME":"Fountain location:\nRobson & Burrard","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.13827002,49.29345716]},"properties":{"NAME":"Fountain location:\nRobson & Chilco","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.087389,49.2775724]},"properties":{"NAME":"Fountain location:\nUnion & Hawks","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.140276526865,49.2086961922722]},"properties":{"NAME":"Temporary Fountain location:\nNortheast corner of 70th and Granville","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.069552373584,49.2624327440817]},"properties":{"NAME":"Temporary Fountain location:\nNortheast corner of Commercial and Broadway ","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.110301,49.2798072]},"properties":{"NAME":"Temporary Fountain location:\nNortheast corner of Dunsmuir and Beatty","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.133399,49.2304335]},"properties":{"NAME":"Temporary Fountain location:\nNortheast corner of Selkirk and 45th","MAINTAINER":"Engineering"}}
+,{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.104467,49.2701294]},"properties":{"NAME":"Temporary Fountain location:\nSoutheast corner of Ontario and 1st","MAINTAINER":"Engineering"}}
+]}

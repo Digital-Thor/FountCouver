@@ -57,6 +57,8 @@ if (Meteor.isClient) {
       };
     }
   }
+
+
 });
 
   Meteor.startup(function() {
@@ -88,6 +90,20 @@ if (Meteor.isServer) {
         Lon: -122.4
       });
     }
+
+    // var url = "ftp://webftp.vancouver.ca/OpenData/json/drinking_fountains.json";
+    // var results = HTTP.get(url,{},{});
+
+    // var results = Assets.getText("results.json");
+
+    // //console.dir(results);
+    // var ejsonObj = EJSON.parse(results);
+    // debugger;
+
+    // var feature = console.dir(ejsonObj.features);
+    // var geometry = feature.geometry;
+    
+
 
   });
 
