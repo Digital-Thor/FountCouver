@@ -48,6 +48,7 @@ if (Meteor.isClient) {
             map: map.instance
           });
         });
+
       });
 
       // Map initialization options
@@ -69,41 +70,28 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-    if (Locations.find().count() == 0){
-      Locations.insert({
-        Lat: 49, 
-        Lon: -122.1
-      });
 
-      Locations.insert({
-        Lat: 49, 
-        Lon: -122.2
-      });
-
-      Locations.insert({
-        Lat: 48, 
-        Lon: -122.3
-      });
-
-      Locations.insert({
-        Lat: 48, 
-        Lon: -122.4
-      });
-    }
+    Locations.remove({});  // remove any old locations in the database, ie: the old data we hard-coded into Locations.
 
     // var url = "ftp://webftp.vancouver.ca/OpenData/json/drinking_fountains.json";
     // var results = HTTP.get(url,{},{});
 
-    // var results = Assets.getText("results.json");
+    var results = Assets.getText("results.json");
 
-    // //console.dir(results);
-    // var ejsonObj = EJSON.parse(results);
-    // debugger;
+    // console.dir(results);
+    var ejsonObj = EJSON.parse(results);
 
-    // var feature = console.dir(ejsonObj.features);
-    // var geometry = feature.geometry;
+    function LoadLocations( coordpairArr ) {
+     // console.log(" Arr=", coordpairArr.geometry.coordinates[0], coordpairArr.geometry.coordinates[1]);
+      Locations.insert({
+        Lat: coordpairArr.geometry.coordinates[1], 
+        Lon: coordpairArr.geometry.coordinates[0]
+      });
+      }
     
+    var features = (ejsonObj.features);
 
+    features.forEach(LoadLocations);
 
   });
 
