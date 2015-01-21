@@ -10,3 +10,7 @@ insecure
 dburles:google-maps
 http
 ejson
+meteorhacks:npm
+
+
+npm-container
