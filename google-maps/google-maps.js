@@ -69,7 +69,8 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 
-
+// Approach Source: NPM/jsftp documentation
+// Notes: data does show up, but not converting to ejson
 
   Meteor.startup(function () {
     // code to run on server at startup
@@ -85,45 +86,30 @@ if (Meteor.isServer) {
       console.log('DEBUG: ', eventType);
       console.log(JSON.stringify(data, null, 2));
     });
+    Ftp.get("/OpenData/json/drinking_fountains.json", function(err, socket) {
+      if (err) return;
 
-    // Approach Source: https://www.npmjs.com/package/jsftp
-    // Example: https://sourcegraph.com/github.com/ajaxorg/jsftp
-    // Note:    The example looks like it's for jsftp, but I'm not positive.
-    Ftp.get("/OpenData/json/drinking_fountains.json", function(err, data) {
-        if (err)
-            return console.error(err);
-
-        // Do something with the buffer
-        console.log(data);
-        results += data.toString(); 
-        // console.dir(results);
+      socket.on("data", function(d) { 
+        results += d.toString(); 
+        // console.log(results);
         // debugger;
 
         try {
           ejsonObj = EJSON.parse(results);
           }
         catch(e){
-           console.log("EJSON.parse Error = " + e.name + ", " + e.message)
+           console.log(e.name + " " + e.message)
            }      
+        // debugger;
         /* var features = (ejsonObj.features);
         features.forEach(LoadLocations); */
-
-        // We can use raw FTP commands directly as well. In this case we use FTP
-        // 'QUIT' method, which accepts no parameters and returns the farewell
-        // message from the server
-        /* Ftp.raw.quit(function(err, res) {
-            if (err)
-                return console.error(err);
-
-            console.log("FTP session finished.");
-        }); */
+        });
+      socket.on("close", function(hadErr) {
+        if (hadErr)
+          console.error('There was an error retrieving the file.');
+      });
+      socket.resume(console.log("Resuming Socket"));
     });
-
-
-
-
-
-
 
     Locations.remove({});  // remove any old locations in the database, ie: the old data we hard-coded into Locations.
 
