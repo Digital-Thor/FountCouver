@@ -1,8 +1,6 @@
 Locations = new Mongo.Collection("location");
   //console.dir(Locations.find().fetch());
 
-
-
 if (Meteor.isClient) {
 
   var locationsMapped = false;
@@ -14,13 +12,9 @@ if (Meteor.isClient) {
 
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
-      // We can use the `ready` callback to interact with the map API once the map is ready.
       GoogleMaps.ready('exampleMap', function(map) {
-        // Add a marker to the map once it's ready
-
-        // var clientDelay = 0;
-        // if (Locations.find().count() === 0) clientDelay = 14000;
-
+        // Add markers to the map once it's ready
+        // Poll every 300ms to see if Locations collection has been loaded
         Meteor.setInterval( function() {
           if (!locationsMapped) {
             console.log("Waiting for Locations to load");
@@ -62,9 +56,8 @@ if (Meteor.isServer) {
 
   var locationsLoading = false;
 
-  // Approach:  NPM/jsftp documentation
+  // Approach:  wrap NPM/jsftp for use by meteor
   // Link:      https://www.npmjs.com/package/jsftp
-  // Notes:     data does show up, but not converting to ejson
 
   Meteor.startup(function () {
     // code to run on server at startup
@@ -81,10 +74,11 @@ if (Meteor.isServer) {
       console.log(JSON.stringify(data, null, 2));
     });
 
-    var results = {"str":"","loaded":false};  // str will store the contents of the file, loaded indicates if ftp is complete
+    var results = {"str":"","loaded":false};  
+    // .str will store the contents of the file, .loaded flag indicates if ftp is complete
 
 
-    Locations.remove({});  // remove any old locations in the database, ie: the old data we hard-coded into Locations.
+    Locations.remove({});  // remove any old locations in the database
 
 
     Ftp.get("/OpenData/json/drinking_fountains.json", function(err, socket) {
@@ -115,7 +109,7 @@ if (Meteor.isServer) {
         });
       }
 
-
+  // Poll to see if the results are loaded from the ftp site
   Meteor.setInterval( function() {
     if (results.loaded == true && !locationsLoading ) {
       locationsLoading = true;
