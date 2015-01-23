@@ -16,22 +16,25 @@ if (Meteor.isClient) {
         // Add markers to the map once it's ready
         // Poll every 300ms to see if Locations collection has been loaded
         Meteor.setInterval( function() {
-          if (!locationsMapped) {
-            console.log("Waiting for Locations to load");
-            }
-          if ((Locations.find().count() > 0) && (!locationsMapped) ) {  
-            // locations loaded, but not mapped, so map them
-            console.log("About to get coords from Locations collection.");
-            locationsMapped = true;
-            var mapPoints = Locations.find();
-            console.log("About to map each point in mapPoints array");
-            mapPoints.forEach(function (location) {
-                var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(location.Lat, location.Lon),
-                map: map.instance
-              });
-            });   // end mapPoints
-          } 
+          if (!locationsMapped) {     // if locations are not mapped
+            // console.log("Waiting for Locations to load");         
+            Meteor.call('checkIfLocationsLoaded', function(error,result) {
+              if (error) { console.log(error.reason); }
+              else if ( result == true ) {  
+                // locations loaded, but not mapped, so map them
+                // console.log("Locations loaded. About to get coords from Locations collection.");
+                locationsMapped = true;
+                var mapPoints = Locations.find();
+                // console.log("About to map each point in mapPoints array");
+                mapPoints.forEach(function (location) {
+                    var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(location.Lat, location.Lon),
+                    map: map.instance
+                  });
+                });   // end mapPoints
+              } // end else if
+            }); // end of Meteor.call callback
+          } // end of check to see if locations need to be mapped
         },300);
 
 
@@ -54,7 +57,16 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 
-  var locationsLoading = false;
+  var locationsLoading = false; // this flag is set true as soon as loading starts
+  var locationsLoaded = false;  // this flag is set true once loading completes. 
+
+  // method called by client to see if Locations collection is ready. triggers client to start plotting map points.
+  Meteor.methods({
+    checkIfLocationsLoaded: function () { 
+      // console.log("locationsLoaded: ",locationsLoaded); 
+      return locationsLoaded ;
+      } 
+    });
 
   // Approach:  wrap NPM/jsftp for use by meteor
   // Link:      https://www.npmjs.com/package/jsftp
@@ -89,7 +101,7 @@ if (Meteor.isServer) {
         results.str += d.toString(); 
         });
       socket.on("close", function(hadErr) {
-        console.log("Closed");
+        console.log("Closed Socket");
         results.loaded = true;
         // console.log("*** results ****\n",results.str);
         if (hadErr)
@@ -122,7 +134,8 @@ if (Meteor.isServer) {
          }    
       var features = (ejsonObj.features);
       features.forEach(LoadLocations);
-      console.log("Locations collection is loaded:");
+      locationsLoaded = true;
+      console.log("Locations collection is loaded.");
       }
     }, 500);
 
