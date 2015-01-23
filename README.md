@@ -4,7 +4,7 @@ A Meteor mapping example using the Node ftp package JSFTP and Google Maps.
 
 **Meteor Learning Goal**
  
-Plot map coordinates on Google Maps for drinking fountains in Vancouver, BC using
+Mark the locations on Google Maps of public drinking fountains in Vancouver BC using
 
     http://data.vancouver.ca/datacatalogue/drinkingFountains.htm
 
