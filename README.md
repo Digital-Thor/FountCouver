@@ -27,7 +27,7 @@ In project root folder:
 ```
 meteor add meteorhacks:npm
 ```
-2.Create a packages.json file containing:
+2.Create a ```packages.json``` file containing:
 ```javascript
 {
 "redis": "0.8.2",
