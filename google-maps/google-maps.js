@@ -1,5 +1,6 @@
 Locations = new Mongo.Collection("location");
   //console.dir(Locations.find().fetch());
+var locationsLoaded = false;
 
 
 if (Meteor.isClient) {
@@ -7,25 +8,24 @@ if (Meteor.isClient) {
 
   Template.body.helpers({
     exampleMapOptions2: function() {
+    // Google Docs: https://developers.google.com/maps/documentation/javascript/tutorial
+    //              https://developers.google.com/maps/documentation/javascript/events
+    // Meteor Docs: https://github.com/dburles/meteor-google-maps
+
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
       // We can use the `ready` callback to interact with the map API once the map is ready.
       GoogleMaps.ready('exampleMap', function(map) {
         // Add a marker to the map once it's ready
-        
-        //for loop to create markers
-        // var marker = new google.maps.Marker({
-        //   position: map.options.center,
-        //   map: map.instance
-        // });
+
         var clientDelay = 0;
         if (Locations.find().count() === 0) clientDelay = 14000;
         Meteor.setTimeout( function() {
+          console.log("About to get coords from Locations collection.");
           var mapPoints = Locations.find();
           //  debugger;
+          console.log("About to map each point in mapPoints array");
           mapPoints.forEach(function (location) {
-            console.log(location.Lat, location.Lon);
-            // console.dir(location);
               var marker = new google.maps.Marker({
               position: new google.maps.LatLng(location.Lat, location.Lon),
               map: map.instance
@@ -48,6 +48,7 @@ if (Meteor.isClient) {
   });
 } // end client code
 
+
 if (Meteor.isServer) {
 
   // Approach:  NPM/jsftp documentation
@@ -69,18 +70,23 @@ if (Meteor.isServer) {
       console.log(JSON.stringify(data, null, 2));
     });
 
-    var results = ""; // Will store the contents of the file
+    var results = {"str":"","loaded":false};  // str will store the contents of the file, loaded indicates if ftp is complete
+
+
+    Locations.remove({});  // remove any old locations in the database, ie: the old data we hard-coded into Locations.
+
 
     Ftp.get("/OpenData/json/drinking_fountains.json", function(err, socket) {
       if (err) return;
 
       socket.on("data", function(d) { 
         console.log("* * * building results * * *");
-        results += d.toString(); 
+        results.str += d.toString(); 
         });
       socket.on("close", function(hadErr) {
         console.log("Closed");
-        // console.log("*** results ****\n",results);
+        results.loaded = true;
+        // console.log("*** results ****\n",results.str);
         if (hadErr)
           console.error('There was an error retrieving the file.');
       });
@@ -88,12 +94,10 @@ if (Meteor.isServer) {
     });
 
 
-    Locations.remove({});  // remove any old locations in the database, ie: the old data we hard-coded into Locations.
-
 
 
     function LoadLocations( coordpairArr ) {
-     console.log(" Arr=", coordpairArr.geometry.coordinates[0], coordpairArr.geometry.coordinates[1]);
+     // console.log(" Arr=", coordpairArr.geometry.coordinates[0], coordpairArr.geometry.coordinates[1]);
       Locations.insert({
         Lat: coordpairArr.geometry.coordinates[1], 
         Lon: coordpairArr.geometry.coordinates[0]
@@ -101,20 +105,22 @@ if (Meteor.isServer) {
       }
 
 
-  Meteor.setTimeout( function() {
-    console.log("About to parse results into EJSON");
-    try {
-      ejsonObj = EJSON.parse(results);
+  Meteor.setInterval( function() {
+    if (results.loaded == true && !locationsLoaded ) {
+      locationsLoaded = true;
+      console.log("About to parse results into EJSON");
+      try {
+        ejsonObj = EJSON.parse(results.str);
+        }
+      catch(e){
+         console.log("EJSON parsing error = " + e.name + " - " + e.message)
+         }    
+      var features = (ejsonObj.features);
+      features.forEach(LoadLocations);
+      console.log("Locations collection is loaded.");
       }
-    catch(e){
-       console.log("EJSON parsing error = " + e.name + " - " + e.message)
-       }    
-    var features = (ejsonObj.features);
-    features.forEach(LoadLocations);
-    }, 12000);
+    }, 500);
 
   });  // end server startup code
 
 }     // end server code
-
-
