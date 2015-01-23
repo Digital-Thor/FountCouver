@@ -1,8 +1,12 @@
 /*
 
+FountCouver
+
+    A Meteor mapping example using the Node ftp package JSFTP and Google Maps.
+
 Meteor Learning Goal
  
-    Plot map coordinates on Google Maps for drinking fountains in Vancouver, BC using
+    Mark the locations on Google Maps of public drinking fountains in Vancouver BC using
 
       http://data.vancouver.ca/datacatalogue/drinkingFountains.htm
 
@@ -10,7 +14,7 @@ Meteor Learning Goal
 
       ftp://webftp.vancouver.ca/OpenData/json/drinking_fountains.json
 
-    so this project couldn't be done with a simple HTTP GET call and instead required an FTP client in the Meteor server code
+    so this project couldn't be done with a simple HTTP GET call and instead required an FTP client in the Meteor server code.
 
 Approach
   
@@ -49,6 +53,7 @@ if (Meteor.isClient) {
         Meteor.setInterval( function() {
           if (!locationsMapped) {     // if locations are not mapped
             // console.log("Waiting for Locations to load");         
+
             Meteor.call('checkIfLocationsLoaded', function(error,result) {
               if (error) { console.log(error.reason); }
               else if ( result == true ) {  
@@ -63,11 +68,12 @@ if (Meteor.isClient) {
                     map: map.instance
                   });
                 });   // end mapPoints
-              } // end else if
-            }); // end of Meteor.call callback
-          } // end of check to see if locations need to be mapped
-        },300);
-      }); // end of GoogleMaps.ready
+              }       // end else if (data ready to send to Google Maps)
+            });       // end of Meteor.call callback
+
+          }           // end of check to see if locations need to be mapped
+        },300);       // end of Meteor.setInterval
+      });             // end of GoogleMaps.ready
 
       // Map initialization options
       return {
