@@ -2,6 +2,8 @@
 
 A Meteor mapping example using the Node ftp package JSFTP and Google Maps.
 
+**Note:** Ignore commit messages about "Buggy JSFTP..." since those are resolved.
+
 **Meteor Learning Goal**
  
 Mark the locations on Google Maps of public drinking fountains in Vancouver BC using
