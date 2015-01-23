@@ -1,7 +1,6 @@
 Locations = new Mongo.Collection("location");
   //console.dir(Locations.find().fetch());
-locationsLoading = false;
-locationsLoaded = false;
+
 
 
 if (Meteor.isClient) {
@@ -25,13 +24,12 @@ if (Meteor.isClient) {
         Meteor.setInterval( function() {
           if (!locationsMapped) {
             console.log("Waiting for Locations to load");
-            console.log(locationsLoaded, !locationsMapped);
             }
-          if ((Locations.find().count() > 0) && (!locationsMapped) ) {
+          if ((Locations.find().count() > 0) && (!locationsMapped) ) {  
+            // locations loaded, but not mapped, so map them
             console.log("About to get coords from Locations collection.");
             locationsMapped = true;
             var mapPoints = Locations.find();
-            //  debugger;
             console.log("About to map each point in mapPoints array");
             mapPoints.forEach(function (location) {
                 var marker = new google.maps.Marker({
@@ -39,7 +37,7 @@ if (Meteor.isClient) {
                 map: map.instance
               });
             });   // end mapPoints
-          } // end of if locationsLoaded
+          } 
         },300);
 
 
@@ -61,6 +59,8 @@ if (Meteor.isClient) {
 
 
 if (Meteor.isServer) {
+
+  var locationsLoading = false;
 
   // Approach:  NPM/jsftp documentation
   // Link:      https://www.npmjs.com/package/jsftp
@@ -128,8 +128,7 @@ if (Meteor.isServer) {
          }    
       var features = (ejsonObj.features);
       features.forEach(LoadLocations);
-      locationsLoaded = true;
-      console.log("Locations collection is loaded:", locationsLoaded);
+      console.log("Locations collection is loaded:");
       }
     }, 500);
 
