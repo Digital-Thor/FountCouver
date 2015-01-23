@@ -1,3 +1,34 @@
+/*
+
+Meteor Learning Goal
+ 
+    Plot map coordinates on Google Maps for drinking fountains in Vancouver, BC using
+
+      http://data.vancouver.ca/datacatalogue/drinkingFountains.htm
+
+    JSON data was only available by FTP at: 
+
+      ftp://webftp.vancouver.ca/OpenData/json/drinking_fountains.json
+
+    so this project couldn't be done with a simple HTTP GET call and instead required an FTP client in the Meteor server code
+
+Approach
+  
+  Since there is no Meteor package to provide FTP client functions (as of Jan 2015), 
+  we need to use NPM to wrap a NodeJS package called JSFTP.
+
+In project root folder:
+
+  1. type in terminal: meteor add meteorhacks:npm
+  2. Create a packages.json file containing:
+    {
+      "redis": "0.8.2",
+      "github": "0.1.8",
+      "jsftp": "1.4.0"
+    }
+
+*/
+
 Locations = new Mongo.Collection("location");
   //console.dir(Locations.find().fetch());
 
@@ -23,7 +54,7 @@ if (Meteor.isClient) {
               else if ( result == true ) {  
                 // locations loaded, but not mapped, so map them
                 // console.log("Locations loaded. About to get coords from Locations collection.");
-                locationsMapped = true;
+                locationsMapped = true; // not quite true, but need to prevent repeat triggers of this code block
                 var mapPoints = Locations.find();
                 // console.log("About to map each point in mapPoints array");
                 mapPoints.forEach(function (location) {
@@ -36,9 +67,7 @@ if (Meteor.isClient) {
             }); // end of Meteor.call callback
           } // end of check to see if locations need to be mapped
         },300);
-
-
-      });
+      }); // end of GoogleMaps.ready
 
       // Map initialization options
       return {
@@ -92,7 +121,6 @@ if (Meteor.isServer) {
 
     Locations.remove({});  // remove any old locations in the database
 
-
     Ftp.get("/OpenData/json/drinking_fountains.json", function(err, socket) {
       if (err) return;
 
@@ -112,7 +140,7 @@ if (Meteor.isServer) {
 
 
 
-
+    // Add a pair of coordinates [longitude, latitude] into the Locations collection
     function LoadLocations( coordpairArr ) {
      // console.log(" Arr=", coordpairArr.geometry.coordinates[0], coordpairArr.geometry.coordinates[1]);
       Locations.insert({
@@ -121,20 +149,20 @@ if (Meteor.isServer) {
         });
       }
 
-  // Poll to see if the results are loaded from the ftp site
+  // Poll every 500ms to see if the results are loaded from the ftp site
   Meteor.setInterval( function() {
-    if (results.loaded == true && !locationsLoading ) {
-      locationsLoading = true;
+    if (results.loaded == true && !locationsLoading ) { // initially, locationsLoading is false
+      locationsLoading = true;                          // set to true to debounce (prevent further trigger of code block)
       console.log("About to parse results into EJSON");
       try {
-        ejsonObj = EJSON.parse(results.str);
+        ejsonObj = EJSON.parse(results.str);            // convert contents of the ftp transfer from string to ejson object
         }
       catch(e){
          console.log("EJSON parsing error = " + e.name + " - " + e.message)
          }    
-      var features = (ejsonObj.features);
-      features.forEach(LoadLocations);
-      locationsLoaded = true;
+      var features = (ejsonObj.features);               // traverse to the correct records
+      features.forEach(LoadLocations);                  // for each set of coordinates, place them in the Locations collection
+      locationsLoaded = true;                           // this flag is polled by client to trigger plotting points on map
       console.log("Locations collection is loaded.");
       }
     }, 500);
