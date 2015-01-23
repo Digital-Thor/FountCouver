@@ -1,11 +1,12 @@
 Locations = new Mongo.Collection("location");
   //console.dir(Locations.find().fetch());
-var locationsLoaded = false;
+locationsLoading = false;
+locationsLoaded = false;
 
 
 if (Meteor.isClient) {
 
-
+  var locationsMapped = false;
   Template.body.helpers({
     exampleMapOptions2: function() {
     // Google Docs: https://developers.google.com/maps/documentation/javascript/tutorial
@@ -18,20 +19,30 @@ if (Meteor.isClient) {
       GoogleMaps.ready('exampleMap', function(map) {
         // Add a marker to the map once it's ready
 
-        var clientDelay = 0;
-        if (Locations.find().count() === 0) clientDelay = 14000;
-        Meteor.setTimeout( function() {
-          console.log("About to get coords from Locations collection.");
-          var mapPoints = Locations.find();
-          //  debugger;
-          console.log("About to map each point in mapPoints array");
-          mapPoints.forEach(function (location) {
-              var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(location.Lat, location.Lon),
-              map: map.instance
-            });
-          });   // end mapPoints
-        },clientDelay);
+        // var clientDelay = 0;
+        // if (Locations.find().count() === 0) clientDelay = 14000;
+
+        Meteor.setInterval( function() {
+          if (!locationsMapped) {
+            console.log("Waiting for Locations to load");
+            console.log(locationsLoaded, !locationsMapped);
+            }
+          if ((Locations.find().count() > 0) && (!locationsMapped) ) {
+            console.log("About to get coords from Locations collection.");
+            locationsMapped = true;
+            var mapPoints = Locations.find();
+            //  debugger;
+            console.log("About to map each point in mapPoints array");
+            mapPoints.forEach(function (location) {
+                var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(location.Lat, location.Lon),
+                map: map.instance
+              });
+            });   // end mapPoints
+          } // end of if locationsLoaded
+        },300);
+
+
       });
 
       // Map initialization options
@@ -106,8 +117,8 @@ if (Meteor.isServer) {
 
 
   Meteor.setInterval( function() {
-    if (results.loaded == true && !locationsLoaded ) {
-      locationsLoaded = true;
+    if (results.loaded == true && !locationsLoading ) {
+      locationsLoading = true;
       console.log("About to parse results into EJSON");
       try {
         ejsonObj = EJSON.parse(results.str);
@@ -117,7 +128,8 @@ if (Meteor.isServer) {
          }    
       var features = (ejsonObj.features);
       features.forEach(LoadLocations);
-      console.log("Locations collection is loaded.");
+      locationsLoaded = true;
+      console.log("Locations collection is loaded:", locationsLoaded);
       }
     }, 500);
 
