@@ -21,7 +21,7 @@ so this project couldn't be done with a simple HTTP GET call and instead require
   Since there is no Meteor package to provide FTP client functions (as of Jan 2015), 
   we need to use NPM to wrap a NodeJS package called JSFTP.
 
-**Add FTP Package**
+**Add Packages**
 
 From project root folder:
 
