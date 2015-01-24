@@ -57,6 +57,10 @@ if (Meteor.isClient) {
             Meteor.call('checkIfLocationsLoaded', function(error,result) {
               if (error) { console.log(error.reason); }
               else if ( result == true ) {  
+                Meteor.call('checkNumberOfSourceLocations', function(error2,result2) {
+                  if (error2) { console.log(error2.reason); }
+                  else alert(result2);
+                  });
                 // locations loaded, but not mapped, so map them
                 // console.log("Locations loaded. About to get coords from Locations collection.");
                 locationsMapped = true; // not quite true, but need to prevent repeat triggers of this code block
@@ -94,13 +98,18 @@ if (Meteor.isServer) {
 
   var locationsLoading = false; // this flag is set true as soon as loading starts
   var locationsLoaded = false;  // this flag is set true once loading completes. 
+  var locationsCounter = 0;     // number of locations inserted into Locations
 
   // method called by client to see if Locations collection is ready. triggers client to start plotting map points.
   Meteor.methods({
     checkIfLocationsLoaded: function () { 
       // console.log("locationsLoaded: ",locationsLoaded); 
       return locationsLoaded ;
-      } 
+      },
+    checkNumberOfSourceLocations: function () {
+      console.log("locationsCounter = ",locationsCounter);
+      return locationsCounter;
+      }      
     });
 
   // Approach:  wrap NPM/jsftp for use by meteor
@@ -153,6 +162,7 @@ if (Meteor.isServer) {
         Lat: coordpairArr.geometry.coordinates[1], 
         Lon: coordpairArr.geometry.coordinates[0]
         });
+      locationsCounter++;
       }
 
   // Poll every 500ms to see if the results are loaded from the ftp site
