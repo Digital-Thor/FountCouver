@@ -38,12 +38,16 @@ Locations = new Mongo.Collection("locations");
 ProgStatus = new Mongo.Collection("progstatus");  // program status info and flags
 
 if (Meteor.isClient) {
-
+  
+  pointsCounter = 0;                                  // current number of locations mapped on google map
+  totalPointsMappedCount = new ReactiveVar(0);        // final tally of locations mapped on google map        
   var locationsMapped = false;
   Template.body.helpers({
     sourceLocationsCount: function(){
-      var initSourceCount = ProgStatus.findOne({statusName: "sourceCount"});
-      return(initSourceCount.statusValue);
+      return(ProgStatus.findOne({statusName: "sourceCount"}).statusValue);
+      },
+    pointsMappedCount: function(){
+      return(totalPointsMappedCount.get());
       },
     exampleMapOptions2: function() {
     // Google Docs: https://developers.google.com/maps/documentation/javascript/tutorial
@@ -72,16 +76,18 @@ if (Meteor.isClient) {
                 var mapPoints = Locations.find();
                 // console.log("About to map each point in mapPoints array");
                 mapPoints.forEach(function (location) {
-                    var marker = new google.maps.Marker({
+                  var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(location.Lat, location.Lon),
                     map: map.instance
-                  });
-                });   // end mapPoints
+                    });
+                  pointsCounter++;
+                  });   // end mapPoints
+                totalPointsMappedCount.set(pointsCounter);
               }       // end else if (data ready to send to Google Maps)
             });       // end of Meteor.call callback
 
           }           // end of check to see if locations need to be mapped
-        },300);       // end of Meteor.setInterval
+        },2000);      // end of Meteor.setInterval
       });             // end of GoogleMaps.ready
 
       // Map initialization options

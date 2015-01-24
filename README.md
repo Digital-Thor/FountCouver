@@ -23,13 +23,14 @@ so this project couldn't be done with a simple HTTP GET call and instead require
 
 **Add FTP Package**
 
-In project root folder:
+From project root folder:
 
-1.Type in terminal: 
+1.Add Meteor Packages.  Type in terminal: 
 ```
 meteor add meteorhacks:npm
+meteor add reactive-var
 ```
-2.Create a ```packages.json``` file containing:
+2.Add Node packages by creating ```packages.json``` file containing:
 ```javascript
 {
 "redis": "0.8.2",
