@@ -33,13 +33,18 @@ In project root folder:
 
 */
 
-Locations = new Mongo.Collection("location");
+Locations = new Mongo.Collection("locations");
   //console.dir(Locations.find().fetch());
+ProgStatus = new Mongo.Collection("progstatus");  // program status info and flags
 
 if (Meteor.isClient) {
 
   var locationsMapped = false;
   Template.body.helpers({
+    sourceLocationsCount: function(){
+      var initSourceCount = ProgStatus.findOne({statusName: "sourceCount"});
+      return(initSourceCount.statusValue);
+      },
     exampleMapOptions2: function() {
     // Google Docs: https://developers.google.com/maps/documentation/javascript/tutorial
     //              https://developers.google.com/maps/documentation/javascript/events
@@ -58,8 +63,8 @@ if (Meteor.isClient) {
               if (error) { console.log(error.reason); }
               else if ( result == true ) {  
                 Meteor.call('checkNumberOfSourceLocations', function(error2,result2) {
-                  if (error2) { console.log(error2.reason); }
-                  else alert(result2);
+                  if (error2) { console.log("Source Location error: ",error2.reason); }
+                  else console.log("Number of Source Locations = " + result2);
                   });
                 // locations loaded, but not mapped, so map them
                 // console.log("Locations loaded. About to get coords from Locations collection.");
@@ -100,13 +105,13 @@ if (Meteor.isServer) {
   var locationsLoaded = false;  // this flag is set true once loading completes. 
   var locationsCounter = 0;     // number of locations inserted into Locations
 
-  // method called by client to see if Locations collection is ready. triggers client to start plotting map points.
+  // method called by client to see if Locations collection is ready. 
   Meteor.methods({
-    checkIfLocationsLoaded: function () { 
+    checkIfLocationsLoaded: function () {                   // triggers client to start plotting map points.
       // console.log("locationsLoaded: ",locationsLoaded); 
       return locationsLoaded ;
       },
-    checkNumberOfSourceLocations: function () {
+    checkNumberOfSourceLocations: function () {             // used by client to log (on server) inital number of source locations
       console.log("locationsCounter = ",locationsCounter);
       return locationsCounter;
       }      
@@ -135,6 +140,7 @@ if (Meteor.isServer) {
 
 
     Locations.remove({});  // remove any old locations in the database
+    ProgStatus.remove({});     // initialize any program status info and flags
 
     Ftp.get("/OpenData/json/drinking_fountains.json", function(err, socket) {
       if (err) return;
@@ -179,6 +185,10 @@ if (Meteor.isServer) {
       var features = (ejsonObj.features);               // traverse to the correct records
       features.forEach(LoadLocations);                  // for each set of coordinates, place them in the Locations collection
       locationsLoaded = true;                           // this flag is polled by client to trigger plotting points on map
+      ProgStatus.insert({
+        statusName: "sourceCount",
+        statusValue: locationsCounter
+        });
       console.log("Locations collection is loaded.");
       }
     }, 500);
