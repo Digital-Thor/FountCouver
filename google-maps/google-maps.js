@@ -56,20 +56,18 @@ if (Meteor.isClient) {
 
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
+      // Add markers to the map once it's ready
       GoogleMaps.ready('exampleMap', function(map) {
-        // Add markers to the map once it's ready
-        // Poll every 300ms to see if Locations collection has been loaded
-        Meteor.setInterval( function() {
-          if (!locationsMappedFlag) {     // if locations are not mapped
+
+//TODO:
+
+        // The following code block waits for the client's collection of locations to load. 
+        // It needs to be changed to use cursor.observeChanges so that it can plot points as they arrive in client
+        Meteor.setInterval( function() {  // this could be a timer, but interval will be used in future code.
+          if (!locationsMappedFlag && (Locations.find().count()>0) ) {     // if locations are not mapped
             // console.log("Waiting for Locations to load");         
 
-            Meteor.call('checkIfLocationsLoadedOnServer', function(error,result) {
-              if (error) { console.log(error.reason); }
-              else if ( result == true ) {  
-                Meteor.call('getNumberOfSourceLocations', function(error2,result2) {
-                  if (error2) { console.log("Source Location error: ",error2.reason); }
-                  else console.log("Number of Source Locations = " + result2);
-                  });
+             {  
                 // locations loaded, but not mapped, so map them
                 console.log("Locations loaded. About to get coords from Locations collection.");
                 locationsMappedFlag = true; // not quite true, but need to prevent repeat triggers of this code block
@@ -84,7 +82,6 @@ if (Meteor.isClient) {
                 });   // end mapPoints
                 totalPointsMappedCount.set(pointsCounter);
               }       // end else if (data ready to send to Google Maps)
-            });       // end of Meteor.call callback
 
           }           // end of check to see if locations need to be mapped
         },5000);      // end of Meteor.setInterval
