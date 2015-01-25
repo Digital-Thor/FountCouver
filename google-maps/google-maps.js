@@ -40,8 +40,10 @@ ProgStatus = new Mongo.Collection("progstatus");  // program status info and fla
 if (Meteor.isClient) {
   
   var pointsCounter = 0;                                  // current number of locations mapped on google map
-  totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");        // final tally of locations mapped on google map        
+  totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");  // final tally of points added to map        
   var locationsMappedFlag = false;
+//  var mapPoints;    // DB cursor of latest points to map (cursor filling asynchonously due to DDP transfer from Server)
+
   Template.body.helpers({
     sourceLocationsCount: function(){
       return(ProgStatus.findOne({statusName: "sourceCount"}).statusValue);
@@ -55,46 +57,40 @@ if (Meteor.isClient) {
     // Meteor Docs: https://github.com/dburles/meteor-google-maps
 
     // Make sure the maps API has loaded
-    if (GoogleMaps.loaded()) {
+
+//TODO: confirm that .loaded in next line is an event. If not, need to poll.
+
+    if ( GoogleMaps.loaded() ) {
       // Add markers to the map once it's ready
       GoogleMaps.ready('exampleMap', function(map) {
 
-//TODO:
+     // Checks for any new locations to map (locations arrive in batches due to server->client collection sync delays)
 
-        // The following code block waits for the client's collection of locations to load. 
-        // It needs to be changed to use cursor.observeChanges so that it can plot points as they arrive in client
-        Meteor.setInterval( function() {  // this could be a timer, but interval will be used in future code.
-          if (!locationsMappedFlag && (Locations.find().count()>0) ) {     // if locations are not mapped
-            // console.log("Waiting for Locations to load");         
+      console.log("Map ready for plotting."); 
+      var handle = Locations.find().observeChanges({  // this is a live query and runs until handle is told to stop
 
-             {  
-                // locations loaded, but not mapped, so map them
-                console.log("Locations loaded. About to get coords from Locations collection.");
-                locationsMappedFlag = true; // not quite true, but need to prevent repeat triggers of this code block
-                var mapPoints = Locations.find();
-                console.log("About to map each point in mapPoints array");
-                mapPoints.forEach(function (location) {
-                  var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(location.Lat, location.Lon),
-                    map: map.instance
-                  });
-                  pointsCounter++;
-                });   // end mapPoints
-                totalPointsMappedCount.set(pointsCounter);
-              }       // end else if (data ready to send to Google Maps)
+        added: function(id,location){
+          console.log("new arrivals received, about to map them");
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(location.Lat, location.Lon),
+            map: map.instance
+            });
+          pointsCounter++;      
+          totalPointsMappedCount.set(pointsCounter);  // update total count after each location is mapped  
+          }
+         
+        });
 
-          }           // end of check to see if locations need to be mapped
-        },5000);      // end of Meteor.setInterval
       });             // end of GoogleMaps.ready
 
-      // Map initialization options
-      return {
-        center: new google.maps.LatLng(49.2701294, -123.104467),
-        zoom: 12
-      };
+        // Map initialization options
+        return {
+          center: new google.maps.LatLng(49.2701294, -123.104467),
+          zoom: 12
+        };
+      }
     }
-  }
-});  // end body helpers
+  });  // end body helpers
 
   Meteor.startup(function() {
     pointsCounter = 0;                                  // current number of locations mapped on google map
