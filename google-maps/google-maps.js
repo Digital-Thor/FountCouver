@@ -39,9 +39,9 @@ ProgStatus = new Mongo.Collection("progstatus");  // program status info and fla
 
 if (Meteor.isClient) {
   
-  pointsCounter = 0;                                  // current number of locations mapped on google map
-  totalPointsMappedCount = new ReactiveVar(0);        // final tally of locations mapped on google map        
-  var locationsMapped = false;
+  var pointsCounter = 0;                                  // current number of locations mapped on google map
+  totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");        // final tally of locations mapped on google map        
+  var locationsMappedFlag = false;
   Template.body.helpers({
     sourceLocationsCount: function(){
       return(ProgStatus.findOne({statusName: "sourceCount"}).statusValue);
@@ -60,34 +60,34 @@ if (Meteor.isClient) {
         // Add markers to the map once it's ready
         // Poll every 300ms to see if Locations collection has been loaded
         Meteor.setInterval( function() {
-          if (!locationsMapped) {     // if locations are not mapped
+          if (!locationsMappedFlag) {     // if locations are not mapped
             // console.log("Waiting for Locations to load");         
 
-            Meteor.call('checkIfLocationsLoaded', function(error,result) {
+            Meteor.call('checkIfLocationsLoadedOnServer', function(error,result) {
               if (error) { console.log(error.reason); }
               else if ( result == true ) {  
-                Meteor.call('checkNumberOfSourceLocations', function(error2,result2) {
+                Meteor.call('getNumberOfSourceLocations', function(error2,result2) {
                   if (error2) { console.log("Source Location error: ",error2.reason); }
                   else console.log("Number of Source Locations = " + result2);
                   });
                 // locations loaded, but not mapped, so map them
-                // console.log("Locations loaded. About to get coords from Locations collection.");
-                locationsMapped = true; // not quite true, but need to prevent repeat triggers of this code block
+                console.log("Locations loaded. About to get coords from Locations collection.");
+                locationsMappedFlag = true; // not quite true, but need to prevent repeat triggers of this code block
                 var mapPoints = Locations.find();
-                // console.log("About to map each point in mapPoints array");
+                console.log("About to map each point in mapPoints array");
                 mapPoints.forEach(function (location) {
                   var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(location.Lat, location.Lon),
                     map: map.instance
-                    });
+                  });
                   pointsCounter++;
-                  });   // end mapPoints
+                });   // end mapPoints
                 totalPointsMappedCount.set(pointsCounter);
               }       // end else if (data ready to send to Google Maps)
             });       // end of Meteor.call callback
 
           }           // end of check to see if locations need to be mapped
-        },2000);      // end of Meteor.setInterval
+        },5000);      // end of Meteor.setInterval
       });             // end of GoogleMaps.ready
 
       // Map initialization options
@@ -100,6 +100,8 @@ if (Meteor.isClient) {
 });  // end body helpers
 
   Meteor.startup(function() {
+    pointsCounter = 0;                                  // current number of locations mapped on google map
+    locationsMappedFlag = false;
     GoogleMaps.load();
   });
 } // end client code
@@ -107,17 +109,17 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 
-  var locationsLoading = false; // this flag is set true as soon as loading starts
-  var locationsLoaded = false;  // this flag is set true once loading completes. 
+  var locationsLoadingFlag = false; // this flag is set true as soon as loading starts
+  var locationsLoadedFlag = false;  // this flag is set true once loading completes. 
   var locationsCounter = 0;     // number of locations inserted into Locations
 
   // method called by client to see if Locations collection is ready. 
   Meteor.methods({
-    checkIfLocationsLoaded: function () {                   // triggers client to start plotting map points.
-      // console.log("locationsLoaded: ",locationsLoaded); 
-      return locationsLoaded ;
+    checkIfLocationsLoadedOnServer: function () {                   // triggers client to start plotting map points.
+      // console.log("locationsLoadedFlag: ",locationsLoadedFlag); 
+      return locationsLoadedFlag ;
       },
-    checkNumberOfSourceLocations: function () {             // used by client to log (on server) inital number of source locations
+    getNumberOfSourceLocations: function () {             // used by client to log (on server) inital number of source locations
       console.log("locationsCounter = ",locationsCounter);
       return locationsCounter;
       }      
@@ -179,8 +181,8 @@ if (Meteor.isServer) {
 
   // Poll every 500ms to see if the results are loaded from the ftp site
   Meteor.setInterval( function() {
-    if (results.loaded == true && !locationsLoading ) { // initially, locationsLoading is false
-      locationsLoading = true;                          // set to true to debounce (prevent further trigger of code block)
+    if (results.loaded == true && !locationsLoadingFlag ) { // initially, locationsLoading is false
+      locationsLoadingFlag = true;                          // set to true to debounce (prevent further trigger of code block)
       console.log("About to parse results into EJSON");
       try {
         ejsonObj = EJSON.parse(results.str);            // convert contents of the ftp transfer from string to ejson object
@@ -190,7 +192,7 @@ if (Meteor.isServer) {
          }    
       var features = (ejsonObj.features);               // traverse to the correct records
       features.forEach(LoadLocations);                  // for each set of coordinates, place them in the Locations collection
-      locationsLoaded = true;                           // this flag is polled by client to trigger plotting points on map
+      locationsLoadedFlag = true;                           // this flag is polled by client to trigger plotting points on map
       ProgStatus.insert({
         statusName: "sourceCount",
         statusValue: locationsCounter
