@@ -42,7 +42,6 @@ if (Meteor.isClient) {
   var pointsCounter = 0;                                  // current number of locations mapped on google map
   totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");  // final tally of points added to map        
   var locationsMappedFlag = false;
-//  var mapPoints;    // DB cursor of latest points to map (cursor filling asynchonously due to DDP transfer from Server)
 
   Template.body.helpers({
     sourceLocationsCount: function(){
@@ -57,31 +56,28 @@ if (Meteor.isClient) {
     // Meteor Docs: https://github.com/dburles/meteor-google-maps
 
     // Make sure the maps API has loaded
-
-//TODO: confirm that .loaded in next line is an event. If not, need to poll.
-
     if ( GoogleMaps.loaded() ) {
       // Add markers to the map once it's ready
       GoogleMaps.ready('exampleMap', function(map) {
 
-     // Checks for any new locations to map (locations arrive in batches due to server->client collection sync delays)
+        // Checks for any new locations to map (locations arrive in batches due to server->client collection sync delays)
 
-      console.log("Map ready for plotting."); 
-      var handle = Locations.find().observeChanges({  // this is a live query and runs until handle is told to stop
+        console.log("Map ready for plotting."); 
+        var handle = Locations.find().observeChanges({  // this live query runs until handle is told to stop (not implemented)
 
-        added: function(id,location){
-          console.log("new arrivals received, about to map them");
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(location.Lat, location.Lon),
-            map: map.instance
-            });
-          pointsCounter++;      
-          totalPointsMappedCount.set(pointsCounter);  // update total count after each location is mapped  
-          }
-         
-        });
+          added: function(id,location){
+            console.log("new arrivals received, about to map them");
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(location.Lat, location.Lon),
+              map: map.instance
+              });
+            pointsCounter++;      
+            totalPointsMappedCount.set(pointsCounter);  // update total count after each location is mapped  
+            }
+           
+          });  // end of observe.Changes
 
-      });             // end of GoogleMaps.ready
+        });             // end of GoogleMaps.ready
 
         // Map initialization options
         return {
@@ -93,6 +89,7 @@ if (Meteor.isClient) {
   });  // end body helpers
 
   Meteor.startup(function() {
+    console.log("Meteor Started");
     pointsCounter = 0;                                  // current number of locations mapped on google map
     locationsMappedFlag = false;
     GoogleMaps.load();
