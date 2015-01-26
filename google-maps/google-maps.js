@@ -40,7 +40,7 @@ ProgStatus = new Mongo.Collection("progstatus");  // program status info and fla
 if (Meteor.isClient) {
   
   var pointsCounter = 0;                                  // current number of locations mapped on google map
-  totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");  // final tally of points added to map        
+  var totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");  // final tally of points added to map        
   var locationsMappedFlag = false;
 
   Template.body.helpers({
@@ -99,7 +99,6 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 
-  var locationsLoadingFlag = false; // this flag is set true as soon as loading starts
   var locationsLoadedFlag = false;  // this flag is set true once loading completes. 
   var locationsCounter = 0;     // number of locations inserted into Locations
 
@@ -169,27 +168,30 @@ if (Meteor.isServer) {
       locationsCounter++;
       }
 
-  // Poll every 500ms to see if the results are loaded from the ftp site
-  Meteor.setInterval( function() {
-    if (results.loaded == true && !locationsLoadingFlag ) { // initially, locationsLoading is false
-      locationsLoadingFlag = true;                          // set to true to debounce (prevent further trigger of code block)
+  // Poll every 150ms to see if the results are loaded from the ftp site
+  LoopHandle = Meteor.setInterval( function() {
+    if ( results.loaded === true ) { 
+      clearInterval(LoopHandle);                            // prevent future triggers of this code block
       console.log("About to parse results into EJSON");
       try {
-        ejsonObj = EJSON.parse(results.str);            // convert contents of the ftp transfer from string to ejson object
+        var ejsonObj = EJSON.parse(results.str);            // convert contents of the ftp transfer from string to ejson object
         }
       catch(e){
-         console.log("EJSON parsing error = " + e.name + " - " + e.message)
+         console.log("EJSON parsing error = " + e.name + " - " + e.message);
          }    
-      var features = (ejsonObj.features);               // traverse to the correct records
-      features.forEach(LoadLocations);                  // for each set of coordinates, place them in the Locations collection
+      var features = (ejsonObj.features);                   // traverse to the correct records
+      features.forEach(LoadLocations);                      // for each set of coordinates, place them in the Locations collection
       locationsLoadedFlag = true;                           // this flag is polled by client to trigger plotting points on map
       ProgStatus.insert({
         statusName: "sourceCount",
         statusValue: locationsCounter
         });
       console.log("Locations collection is loaded.");
+      } 
+    else {
+      console.log("Waiting for ftp transfer to complete");
       }
-    }, 500);
+    }, 150);
 
   });  // end server startup code
 
