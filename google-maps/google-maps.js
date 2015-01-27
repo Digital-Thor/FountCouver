@@ -42,7 +42,7 @@ if (Meteor.isClient) {
   var pointsCounter = 0;                                  // current number of locations mapped on google map
   var totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");  // final tally of points added to map        
   var locationsMappedFlag = false;
-
+  
   Template.body.helpers({
     sourceLocationsCount: function(){
       return(ProgStatus.findOne({statusName: "sourceCount"}).statusValue);

@@ -3,3 +3,16 @@
   width: 800px;
   height: 600px;
 }
+
+#lead-photo {
+  float:left;
+  }
+
+#title-area {
+  float:left;
+  margin-left: 120px;
+  }
+
+h1, h2 {
+  font-family: sans-serif;
+  }
