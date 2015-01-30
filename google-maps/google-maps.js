@@ -37,6 +37,7 @@ Locations = new Mongo.Collection("locations");
   //console.dir(Locations.find().fetch());
 ProgStatus = new Mongo.Collection("progstatus");  // program status info and flags
 
+
 if (Meteor.isClient) {
   
   var pointsCounter = 0;                                  // current number of locations mapped on google map
@@ -45,7 +46,9 @@ if (Meteor.isClient) {
   
   Template.body.helpers({
     sourceLocationsCount: function(){
-      return(ProgStatus.findOne({statusName: "sourceCount"}).statusValue);
+			var tempCollection = ProgStatus.findOne({statusName: "sourceCount"});  // Meteor renders template before
+			if (tempCollection) return tempCollection.statusValue; // collection is defined, so 1st check if it exists
+			else return;
       },
     pointsMappedCount: function(){
       return(totalPointsMappedCount.get());
