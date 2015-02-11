@@ -1,11 +1,42 @@
 /* CSS declarations go here */
-.map-container {
-  width: 800px;
-  height: 600px;
-}
-
-h1, h2 {
+body {
   font-family: sans-serif;
   }
+
+.map-container {
+  position:fixed !important;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:5;
+  }
+
+h1, h2, p {
+  margin:0;
+  }
+
+#title-area {
+  position: fixed !important;
+  top: 40px;
+  right: 40px;
+  z-index: 10;
+  background-color: rgba(128,128,128,.75);
+  padding: 20px;
+  color: white;
+  border-radius: 20px;
+  }
+
+#footer {
+  position: fixed !important;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+  background-color: rgba(128,128,128,.75);
+  padding: 20px;
+  color: white;
+  border-radius: 20px;
+  }
+
 
 

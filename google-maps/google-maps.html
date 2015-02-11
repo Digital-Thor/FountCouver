@@ -4,7 +4,6 @@
 </head>
 
 <body>
-  <img src='/fountain3_med.png' alt='fountain icon' id="lead-photo">
   <div id="title-area">
     <h1>Welcome to FountCouver</h1>
     <h2><em>Quick Coordinates for Quenching</em></h2>
@@ -13,9 +12,10 @@
   <div class="map-container">
     {{> googleMap name="exampleMap" options=exampleMapOptions2}}
   </div>
-  <div class='clearfix'></div>
-  <p>Number of water fountains listed in Vancouver's Open-Data repository: {{sourceLocationsCount}}</p>
-  <p>Number of locations mapped: {{pointsMappedCount}}</p>
+  <div id="footer">
+    <p>Number of water fountains listed in<br>Vancouver's Open-Data repository: {{sourceLocationsCount}}</p>
+    <p style="padding-top:.5em">Number of locations mapped: {{pointsMappedCount}}</p>
+  </div>
   
 </body>
 
