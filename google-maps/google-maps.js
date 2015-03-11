@@ -5,20 +5,20 @@ FountCouver
     A Meteor mapping example using the Node ftp package JSFTP and Google Maps.
 
 Meteor Learning Goal
- 
+
     Mark the locations on Google Maps of public drinking fountains in Vancouver BC using
 
       http://data.vancouver.ca/datacatalogue/drinkingFountains.htm
 
-    JSON data was only available by FTP at: 
+    JSON data was only available by FTP at:
 
       ftp://webftp.vancouver.ca/OpenData/json/drinking_fountains.json
 
     so this project couldn't be done with a simple HTTP GET call and instead required an FTP client in the Meteor server code.
 
 Approach
-  
-  Since there is no Meteor package to provide FTP client functions (as of Jan 2015), 
+
+  Since there is no Meteor package to provide FTP client functions (as of Jan 2015),
   we need to use NPM to wrap a NodeJS package called JSFTP.
 
 In project root folder:
@@ -39,11 +39,11 @@ ProgStatus = new Mongo.Collection("progstatus");  // program status info and fla
 
 
 if (Meteor.isClient) {
-  
+
   var pointsCounter = 0;                                  // current number of locations mapped on google map
-  var totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");  // final tally of points added to map        
+  var totalPointsMappedCount = new ReactiveVar("0 (downloading from web data source)");  // final tally of points added to map
   var locationsMappedFlag = false;
-  
+
   Template.body.helpers({
     sourceLocationsCount: function(){
 			var tempCollection = ProgStatus.findOne({statusName: "sourceCount"});  // Meteor renders template before
@@ -65,7 +65,7 @@ if (Meteor.isClient) {
 
         // Checks for any new locations to map (locations arrive in batches due to server->client collection sync delays)
 
-        console.log("Map ready for plotting."); 
+        console.log("Map ready for plotting.");
         var handle = Locations.find().observeChanges({  // this live query runs until handle is told to stop (not implemented)
 
           added: function(id,location){
@@ -74,10 +74,10 @@ if (Meteor.isClient) {
               position: new google.maps.LatLng(location.Lat, location.Lon),
               map: map.instance
               });
-            pointsCounter++;      
-            totalPointsMappedCount.set(pointsCounter);  // update total count after each location is mapped  
+            pointsCounter++;
+            totalPointsMappedCount.set(pointsCounter);  // update total count after each location is mapped
             }
-           
+
           });  // end of observe.Changes
 
         });             // end of GoogleMaps.ready
@@ -102,19 +102,19 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 
-  var locationsLoadedFlag = false;  // this flag is set true once loading completes. 
+  var locationsLoadedFlag = false;  // this flag is set true once loading completes.
   var locationsCounter = 0;     // number of locations inserted into Locations
 
-  // method called by client to see if Locations collection is ready. 
+  // method called by client to see if Locations collection is ready.
   Meteor.methods({
     checkIfLocationsLoadedOnServer: function () {                   // triggers client to start plotting map points.
-      // console.log("locationsLoadedFlag: ",locationsLoadedFlag); 
+      // console.log("locationsLoadedFlag: ",locationsLoadedFlag);
       return locationsLoadedFlag ;
       },
     getNumberOfSourceLocations: function () {             // used by client to log (on server) inital number of source locations
       console.log("locationsCounter = ",locationsCounter);
       return locationsCounter;
-      }      
+      }
     });
 
   // Approach:  wrap NPM/jsftp for use by meteor
@@ -135,7 +135,7 @@ if (Meteor.isServer) {
       console.log(JSON.stringify(data, null, 2));
     });
 
-    var results = {"str":"","loaded":false};  
+    var results = {"str":"","loaded":false};
     // .str will store the contents of the file, .loaded flag indicates if ftp is complete
 
 
@@ -145,9 +145,9 @@ if (Meteor.isServer) {
     Ftp.get("/OpenData/json/drinking_fountains.json", function(err, socket) {
       if (err) return;
 
-      socket.on("data", function(d) { 
+      socket.on("data", function(d) {
         console.log("* * * building results * * *");
-        results.str += d.toString(); 
+        results.str += d.toString();
         });
       socket.on("close", function(hadErr) {
         console.log("Closed Socket");
@@ -165,7 +165,7 @@ if (Meteor.isServer) {
     function LoadLocations( coordpairArr ) {
      // console.log(" Arr=", coordpairArr.geometry.coordinates[0], coordpairArr.geometry.coordinates[1]);
       Locations.insert({
-        Lat: coordpairArr.geometry.coordinates[1], 
+        Lat: coordpairArr.geometry.coordinates[1],
         Lon: coordpairArr.geometry.coordinates[0]
         });
       locationsCounter++;
@@ -173,11 +173,12 @@ if (Meteor.isServer) {
 
   // Poll every 150ms to see if the results are loaded from the ftp site
   LoopHandle = Meteor.setInterval( function() {
-    if ( results.loaded === true ) { 
+    if ( results.loaded === true ) {
       clearInterval(LoopHandle);                            // prevent future triggers of this code block
       console.log("About to parse results into EJSON");
+      var ejsonObj;
       try {
-        var ejsonObj = EJSON.parse(results.str);            // convert contents of the ftp transfer from string to ejson object
+        ejsonObj = EJSON.parse(results.str);            // convert contents of the ftp transfer from string to ejson object
         }
       catch(e){
          console.log("EJSON parsing error = " + e.name + " - " + e.message);
@@ -190,7 +191,7 @@ if (Meteor.isServer) {
         statusValue: locationsCounter
         });
       console.log("Locations collection is loaded.");
-      } 
+      }
     else {
       console.log("Waiting for ftp transfer to complete");
       }
